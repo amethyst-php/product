@@ -5,23 +5,22 @@ namespace Railken\Amethyst\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Config;
-use Railken\Amethyst\Schemas\ProductSchema;
+use Railken\Amethyst\Common\ConfigurableModel;
 use Railken\Lem\Contracts\EntityContract;
 
 class Product extends Model implements EntityContract
 {
-    use SoftDeletes;
+    use SoftDeletes, ConfigurableModel;
 
     /**
-     * Creates a new instance of the model.
+     * Create a new Eloquent model instance.
      *
      * @param array $attributes
      */
     public function __construct(array $attributes = [])
     {
+        $this->ini('amethyst.product.data.product');
         parent::__construct($attributes);
-        $this->table = Config::get('amethyst.product.managers.product.table');
-        $this->fillable = (new ProductSchema())->getNameFillableAttributes();
     }
 
     /**
@@ -53,6 +52,6 @@ class Product extends Model implements EntityContract
      */
     public function categories()
     {
-        return $this->belongsToMany(Category::class, Config::get('amethyst.product.managers.product-category.table'), 'product_id', 'category_id');
+        return $this->belongsToMany(Category::class, Config::get('amethyst.product.data.product-category.table'), 'product_id', 'category_id');
     }
 }

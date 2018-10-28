@@ -28,11 +28,11 @@ class ProductTest extends BaseTest
     protected $group = 'admin';
 
     /**
-     * Base path config.
+     * Route name.
      *
      * @var string
      */
-    protected $config = 'amethyst.product.http.admin.product';
+    protected $route = 'admin.product';
 
     /**
      * Category tests.
@@ -40,13 +40,12 @@ class ProductTest extends BaseTest
     public function testSuccessCategory()
     {
         $product = (new ProductManager())->createOrFail(ProductFaker::make()->parameters())->getResource();
-        $url = $this->getResourceUrl().'/'.$product->id.'/categories';
 
-        $this->callAndTest('GET', $url, [], 200);
+        $this->callAndTest('GET', route('admin.product-category.index', ['container_id' => $product->id]), [], 200);
 
         $category = (new CategoryManager())->createOrFail(CategoryFaker::make()->parameters())->getResource();
 
-        $this->callAndTest('POST', $url.'/'.$category->id, [], 200);
-        $this->callAndTest('DELETE', $url.'/'.$category->id, [], 200);
+        $this->callAndTest('POST', route('admin.product-category.attach', ['container_id' => $product->id, 'id' => $category->id]), [], 200);
+        $this->callAndTest('DELETE', route('admin.product-category.detach', ['container_id' => $product->id, 'id' => $category->id]), [], 200);
     }
 }

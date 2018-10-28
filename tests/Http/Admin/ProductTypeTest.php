@@ -25,9 +25,9 @@ class ProductTypeTest extends BaseTest
     protected $group = 'admin';
 
     /**
-     * Base path config.
+     * Route name.
      *
      * @var string
      */
-    protected $config = 'amethyst.product.http.admin.product-type';
+    protected $route = 'admin.product-type';
 }
