@@ -22,7 +22,8 @@ class ProductSchema extends Schema
             Attributes\TextAttribute::make('name')
                 ->setRequired(true)
                 ->setUnique(true),
-            Attributes\TextAttribute::make('code'),
+            Attributes\TextAttribute::make('code')
+                ->setUnique(true),
             Attributes\LongTextAttribute::make('description'),
             Attributes\BelongsToAttribute::make('type_id')
                 ->setRelationName('type')
