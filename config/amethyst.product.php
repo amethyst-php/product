@@ -50,27 +50,27 @@ return [
     'http' => [
         'admin' => [
             'product' => [
-                'enabled'     => true,
-                'controller'  => Railken\Amethyst\Http\Controllers\Admin\ProductsController::class,
-                'router'      => [
-                    'as'        => 'product.',
-                    'prefix'    => '/products',
+                'enabled'    => true,
+                'controller' => Railken\Amethyst\Http\Controllers\Admin\ProductsController::class,
+                'router'     => [
+                    'as'     => 'product.',
+                    'prefix' => '/products',
                 ],
             ],
             'product-type' => [
-                'enabled'     => true,
-                'controller'  => Railken\Amethyst\Http\Controllers\Admin\ProductTypesController::class,
-                'router'      => [
-                    'as'        => 'product-type.',
-                    'prefix'    => '/product-types',
+                'enabled'    => true,
+                'controller' => Railken\Amethyst\Http\Controllers\Admin\ProductTypesController::class,
+                'router'     => [
+                    'as'     => 'product-type.',
+                    'prefix' => '/product-types',
                 ],
             ],
             'product-category' => [
-                'enabled'     => true,
-                'controller'  => Railken\Amethyst\Http\Controllers\Admin\ProductsCategoriesController::class,
-                'router'      => [
-                    'as'        => 'product-category.',
-                    'prefix'    => '/products/{container_id}/categories',
+                'enabled'    => true,
+                'controller' => Railken\Amethyst\Http\Controllers\Admin\ProductsCategoriesController::class,
+                'router'     => [
+                    'as'     => 'product-category.',
+                    'prefix' => '/products/{container_id}/categories',
                 ],
             ],
         ],
