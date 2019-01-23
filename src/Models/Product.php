@@ -4,7 +4,6 @@ namespace Railken\Amethyst\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Config;
 use Railken\Amethyst\Common\ConfigurableModel;
 use Railken\Lem\Contracts\EntityContract;
 
@@ -48,10 +47,10 @@ class Product extends Model implements EntityContract
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class, Config::get('amethyst.product.data.product-category.table'), 'product_id', 'category_id');
+        return $this->belongsTo(Category::class);
     }
 }

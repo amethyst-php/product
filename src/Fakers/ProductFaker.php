@@ -23,6 +23,7 @@ class ProductFaker extends Faker
         $bag->set('description', $faker->text);
         $bag->set('type', ProductTypeFaker::make()->parameters()->toArray());
         $bag->set('supplier', SupplierFaker::make()->parameters()->toArray());
+        $bag->set('category', CategoryFaker::make()->parameters()->toArray());
 
         if ($parent) {
             $bag->set('parent', ProductFaker::make()->parameters(false)->toArray());

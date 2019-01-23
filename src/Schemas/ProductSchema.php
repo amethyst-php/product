@@ -2,6 +2,7 @@
 
 namespace Railken\Amethyst\Schemas;
 
+use Railken\Amethyst\Managers\CategoryManager;
 use Railken\Amethyst\Managers\ProductManager;
 use Railken\Amethyst\Managers\ProductTypeManager;
 use Railken\Amethyst\Managers\SupplierManager;
@@ -34,6 +35,9 @@ class ProductSchema extends Schema
             Attributes\BelongsToAttribute::make('supplier_id')
                 ->setRelationName('supplier')
                 ->setRelationManager(SupplierManager::class),
+            Attributes\BelongsToAttribute::make('category_id')
+                ->setRelationName('category')
+                ->setRelationManager(CategoryManager::class),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),

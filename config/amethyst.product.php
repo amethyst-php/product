@@ -34,9 +34,6 @@ return [
             'faker'      => Railken\Amethyst\Fakers\ProductTypeFaker::class,
             'manager'    => Railken\Amethyst\Managers\ProductTypeManager::class,
         ],
-        'product-category' => [
-            'table' => 'amethyst_product_categories',
-        ],
     ],
 
     /*
@@ -63,14 +60,6 @@ return [
                 'router'     => [
                     'as'     => 'product-type.',
                     'prefix' => '/product-types',
-                ],
-            ],
-            'product-category' => [
-                'enabled'    => true,
-                'controller' => Railken\Amethyst\Http\Controllers\Admin\ProductsCategoriesController::class,
-                'router'     => [
-                    'as'     => 'product-category.',
-                    'prefix' => '/products/{container_id}/categories',
                 ],
             ],
         ],
