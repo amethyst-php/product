@@ -6,6 +6,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
 use Railken\Amethyst\Api\Support\Router;
 use Railken\Amethyst\Common\CommonServiceProvider;
+use Railken\Amethyst\Managers\ProductManager;
+use Railken\Amethyst\Models\Product;
 
 class ProductServiceProvider extends CommonServiceProvider
 {
@@ -19,6 +21,8 @@ class ProductServiceProvider extends CommonServiceProvider
         $this->loadExtraRoutes();
         $this->app->register(\Railken\Amethyst\Providers\CategoryServiceProvider::class);
         $this->app->register(\Railken\Amethyst\Providers\SupplierServiceProvider::class);
+
+        Config::set('amethyst.category.data.attributes.categorizable.options.'.Product::class, ProductManager::class);
     }
 
     /**

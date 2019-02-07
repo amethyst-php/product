@@ -26,8 +26,6 @@ class CreateProductsTable extends Migration
             $table->string('name')->unique();
             $table->string('code')->nullable()->unique();
             $table->text('description')->nullable();
-            $table->integer('category_id')->unsigned()->nullable();
-            $table->foreign('category_id')->references('id')->on(Config::get('amethyst.category.data.category.table'));
             $table->integer('type_id')->unsigned()->nullable();
             $table->foreign('type_id')->references('id')->on(Config::get('amethyst.product.data.product-type.table'));
             $table->integer('supplier_id')->unsigned()->nullable();
