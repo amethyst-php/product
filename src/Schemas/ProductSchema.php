@@ -19,6 +19,7 @@ class ProductSchema extends Schema
     {
         return [
             Attributes\IdAttribute::make(),
+            Attributes\UuidAttribute::make(),
             Attributes\TextAttribute::make('name')
                 ->setRequired(true)
                 ->setUnique(true),
