@@ -5,7 +5,7 @@
     "require": {
         "php": ">=7.1",
         "railken/amethyst-common": "0.1.*",
-        "railken/amethyst-category": "0.1.*",
+        "railken/amethyst-taxonomy": "0.1.*",
         "railken/amethyst-supplier": "0.1.*"
     },
     "require-dev": {

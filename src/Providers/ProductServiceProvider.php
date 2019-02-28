@@ -2,9 +2,7 @@
 
 namespace Railken\Amethyst\Providers;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Config;
-use Railken\Amethyst\Api\Support\Router;
 use Railken\Amethyst\Common\CommonServiceProvider;
 use Railken\Amethyst\Managers\ProductManager;
 use Railken\Amethyst\Models\Product;
@@ -18,28 +16,10 @@ class ProductServiceProvider extends CommonServiceProvider
     {
         parent::register();
 
-        $this->loadExtraRoutes();
-        $this->app->register(\Railken\Amethyst\Providers\CategoryServiceProvider::class);
+        $this->app->register(\Railken\Amethyst\Providers\TaxonomyServiceProvider::class);
         $this->app->register(\Railken\Amethyst\Providers\SupplierServiceProvider::class);
 
-        Config::set('amethyst.category.data.attributes.categorizable.options.'.Product::class, ProductManager::class);
-    }
-
-    /**
-     * Load Extra routes.
-     */
-    public function loadExtraRoutes()
-    {
-        $config = Config::get('amethyst.product.http.admin.product-category');
-
-        if (Arr::get($config, 'enabled')) {
-            Router::group('admin', Arr::get($config, 'router'), function ($router) use ($config) {
-                $controller = Arr::get($config, 'controller');
-
-                $router->get('/', ['as' => 'index', 'uses' => $controller.'@index']);
-                $router->post('/{id}', ['as' => 'attach', 'uses' => $controller.'@attach']);
-                $router->delete('/{id}', ['as' => 'detach', 'uses' => $controller.'@detach']);
-            });
-        }
+        Config::push('amethyst.taxonomy.data.taxonomy.seeds', Config::get('amethyst.product.data.taxonomies'));
+        Config::set('amethyst.taxonomy.data.attributes.taxonomable.options.'.Product::class, ProductManager::class);
     }
 }

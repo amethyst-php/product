@@ -45,12 +45,4 @@ class Product extends Model implements EntityContract
     {
         return $this->belongsTo(Product::class);
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
-    public function categories()
-    {
-        return $this->morphToMany(Category::class, 'categorizable');
-    }
 }
