@@ -24,6 +24,6 @@ class ProductServiceProvider extends CommonServiceProvider
             Config::get('amethyst.product.taxonomies')
         ));
 
-        Config::set('amethyst.taxonomy.data.attributes.taxonomable.options.'.Product::class, ProductManager::class);
+        Config::set('amethyst.taxonomy.data.taxonomable.attributes.taxonomable.options.'.Product::class, ProductManager::class);
     }
 }
