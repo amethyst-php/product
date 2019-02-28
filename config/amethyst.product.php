@@ -45,7 +45,7 @@ return [
     |
     */
     'taxonomies' => [
-        'name' => ['Product Category'],
+        ['name' => 'PRODUCT_CATEGORY'],
     ],
 
     /*
