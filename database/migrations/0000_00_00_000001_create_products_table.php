@@ -24,8 +24,8 @@ class CreateProductsTable extends Migration
         Schema::create(Config::get('amethyst.product.data.product.table'), function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('uuid')->index();
-            $table->string('name')->unique();
-            $table->string('code')->nullable()->unique();
+            $table->string('name');
+            $table->string('code')->nullable();
             $table->text('description')->nullable();
             $table->integer('type_id')->unsigned()->nullable();
             $table->foreign('type_id')->references('id')->on(Config::get('amethyst.product.data.product-type.table'));
