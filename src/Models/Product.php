@@ -45,4 +45,12 @@ class Product extends Model implements EntityContract
     {
         return $this->belongsTo(Product::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function children()
+    {
+        return $this->hasMany(Product::class, 'parent_id');
+    }
 }
