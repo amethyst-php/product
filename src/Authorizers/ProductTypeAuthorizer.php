@@ -13,9 +13,9 @@ class ProductTypeAuthorizer extends Authorizer
      * @var array
      */
     protected $permissions = [
-        Tokens::PERMISSION_CREATE => 'product_type.create',
-        Tokens::PERMISSION_UPDATE => 'product_type.update',
-        Tokens::PERMISSION_SHOW   => 'product_type.show',
-        Tokens::PERMISSION_REMOVE => 'product_type.remove',
+        Tokens::PERMISSION_CREATE => 'product-type.create',
+        Tokens::PERMISSION_UPDATE => 'product-type.update',
+        Tokens::PERMISSION_SHOW   => 'product-type.show',
+        Tokens::PERMISSION_REMOVE => 'product-type.remove',
     ];
 }
