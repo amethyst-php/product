@@ -13,4 +13,18 @@ class ProductManager extends Manager
      * @var string
      */
     protected $config = 'amethyst.product.data.product';
+
+    /**
+     * Describe extra actions.
+     *
+     * @return array
+     */
+    public function getDescriptor()
+    {
+        return [
+            'tree' => [
+                'parent'   => 'parent_id',
+            ],
+        ];
+    }
 }
