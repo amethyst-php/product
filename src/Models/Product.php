@@ -29,7 +29,7 @@ class Product extends Model implements EntityContract
      */
     public function type(): BelongsTo
     {
-        return $this->belongsTo(ProductType::class);
+        return $this->belongsTo(config('amethyst.product.data.product-type.model'));
     }
 
     /**
@@ -37,7 +37,7 @@ class Product extends Model implements EntityContract
      */
     public function supplier(): BelongsTo
     {
-        return $this->belongsTo(Supplier::class);
+        return $this->belongsTo(config('amethyst.supplier.data.supplier.model'));
     }
 
     /**
@@ -45,7 +45,7 @@ class Product extends Model implements EntityContract
      */
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(config('amethyst.product.data.product.model'));
     }
 
     /**
@@ -53,6 +53,6 @@ class Product extends Model implements EntityContract
      */
     public function children(): HasMany
     {
-        return $this->hasMany(Product::class, 'parent_id');
+        return $this->hasMany(config('amethyst.product.data.product.model'), 'parent_id');
     }
 }
