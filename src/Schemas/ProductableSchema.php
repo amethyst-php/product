@@ -2,9 +2,9 @@
 
 namespace Railken\Amethyst\Schemas;
 
+use Railken\Amethyst\Managers\ProductManager;
 use Railken\Lem\Attributes;
 use Railken\Lem\Schema;
-use Railken\Amethyst\Managers\ProductManager;
 
 class ProductableSchema extends Schema
 {
@@ -28,7 +28,7 @@ class ProductableSchema extends Schema
             Attributes\TextAttribute::make('key'),
             Attributes\NumberAttribute::make('quantity'),
             Attributes\CreatedAtAttribute::make(),
-            Attributes\UpdatedAtAttribute::make()
+            Attributes\UpdatedAtAttribute::make(),
         ];
     }
 }

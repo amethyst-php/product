@@ -58,16 +58,15 @@ class Product extends Model implements EntityContract
         return $this->hasMany(config('amethyst.product.data.product.model'), 'parent_id');
     }
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(
-            config('amethyst.product.data.product.model'), 
-            config('amethyst.product.data.productable.table'), 
-            'origin_id', 
+            config('amethyst.product.data.product.model'),
+            config('amethyst.product.data.productable.table'),
+            'origin_id',
             'product_id'
         )->using(config('amethyst.product.data.productable.model'));
     }
@@ -79,5 +78,4 @@ class Product extends Model implements EntityContract
     {
         return $this->HasMany(config('amethyst.product.data.productable.model'), 'origin_id');
     }
-
 }

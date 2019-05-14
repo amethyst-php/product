@@ -2,12 +2,10 @@
 
 namespace Railken\Amethyst\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Railken\Amethyst\Common\ConfigurableModel;
 use Railken\Lem\Contracts\EntityContract;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Productable extends Pivot implements EntityContract
 {
@@ -39,5 +37,4 @@ class Productable extends Pivot implements EntityContract
     {
         return $this->belongsTo(config('amethyst.product.data.product.model'));
     }
-
 }
