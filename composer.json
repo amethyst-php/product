@@ -25,6 +25,10 @@
         }
     },
     "extra": {
+        "amethyst": {
+            "package": "product",
+            "namespace": "Railken\\Amethyst"
+        },
         "laravel": {
             "providers": [
                 "Railken\\Amethyst\\Providers\\ProductServiceProvider"

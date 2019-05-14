@@ -4,6 +4,7 @@ namespace Railken\Amethyst\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Railken\Amethyst\Common\ConfigurableModel;
@@ -56,4 +57,27 @@ class Product extends Model implements EntityContract
     {
         return $this->hasMany(config('amethyst.product.data.product.model'), 'parent_id');
     }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function products(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            config('amethyst.product.data.product.model'), 
+            config('amethyst.product.data.productable.table'), 
+            'origin_id', 
+            'product_id'
+        )->using(config('amethyst.product.data.productable.model'));
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function productables(): HasMany
+    {
+        return $this->HasMany(config('amethyst.product.data.productable.model'), 'origin_id');
+    }
+
 }
