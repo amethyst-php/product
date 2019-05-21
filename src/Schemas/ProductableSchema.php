@@ -25,7 +25,7 @@ class ProductableSchema extends Schema
                 ->setRelationName('product')
                 ->setRelationManager(ProductManager::class)
                 ->setRequired(true),
-            Attributes\TextAttribute::make('key'),
+            Attributes\EnumAttribute::make('key', config('amethyst.product.data.productable.attributes.key.options')),
             Attributes\NumberAttribute::make('quantity'),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),

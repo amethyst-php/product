@@ -18,7 +18,7 @@ class ProductableFaker extends Faker
         $bag = new Bag();
         $bag->set('origin', ProductFaker::make()->parameters()->toArray());
         $bag->set('product', ProductFaker::make()->parameters()->toArray());
-        $bag->set('key', $faker->name);
+        $bag->set('key', 'foo');
         $bag->set('quantity', 10);
 
         return $bag;
