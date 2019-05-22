@@ -14,8 +14,8 @@ return [
     'attributes' => [
         'key' => [
             'options' => [
-                'foo'
-            ]
-        ]
-    ]
+                'foo',
+            ],
+        ],
+    ],
 ];
