@@ -68,7 +68,20 @@ class Product extends Model implements EntityContract
             config('amethyst.product.data.productable.table'),
             'origin_id',
             'product_id'
-        )->using(config('amethyst.product.data.productable.model'));
+        )->using(config('amethyst.product.data.productable.model'))->withPivot('key', 'quantity');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function derivatedProducts(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            config('amethyst.product.data.product.model'),
+            config('amethyst.product.data.productable.table'),
+            'product_id',
+            'origin_id'
+        )->using(config('amethyst.product.data.productable.model'))->withPivot('key', 'quantity');
     }
 
     /**
@@ -76,6 +89,6 @@ class Product extends Model implements EntityContract
      */
     public function productables(): HasMany
     {
-        return $this->HasMany(config('amethyst.product.data.productable.model'), 'origin_id');
+        return $this->hasMany(config('amethyst.product.data.productable.model'), 'origin_id');
     }
 }
