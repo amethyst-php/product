@@ -91,4 +91,12 @@ class Product extends Model implements EntityContract
     {
         return $this->hasMany(config('amethyst.product.data.productable.model'), 'origin_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function derivatedProductables(): HasMany
+    {
+        return $this->hasMany(config('amethyst.product.data.productable.model'), 'product_id');
+    }
 }
