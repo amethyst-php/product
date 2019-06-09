@@ -19,11 +19,13 @@ class ProductServiceProvider extends CommonServiceProvider
         $this->app->register(\Railken\Amethyst\Providers\TaxonomyServiceProvider::class);
         $this->app->register(\Railken\Amethyst\Providers\SupplierServiceProvider::class);
 
+        /*
         Config::set('amethyst.taxonomy.data.taxonomy.seeds', array_merge(
             Config::get('amethyst.taxonomy.data.taxonomy.seeds'),
             Config::get('amethyst.product.taxonomies')
         ));
 
         Config::set('amethyst.taxonomy.data.taxonomable.attributes.taxonomable.options.'.Product::class, ProductManager::class);
+        */
     }
 }
