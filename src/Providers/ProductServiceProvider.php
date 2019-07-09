@@ -1,11 +1,11 @@
 <?php
 
-namespace Railken\Amethyst\Providers;
+namespace Amethyst\Providers;
 
 use Illuminate\Support\Facades\Config;
-use Railken\Amethyst\Common\CommonServiceProvider;
-use Railken\Amethyst\Managers\ProductManager;
-use Railken\Amethyst\Models\Product;
+use Amethyst\Common\CommonServiceProvider;
+use Amethyst\Managers\ProductManager;
+use Amethyst\Models\Product;
 
 class ProductServiceProvider extends CommonServiceProvider
 {
@@ -16,8 +16,8 @@ class ProductServiceProvider extends CommonServiceProvider
     {
         parent::register();
 
-        $this->app->register(\Railken\Amethyst\Providers\TaxonomyServiceProvider::class);
-        $this->app->register(\Railken\Amethyst\Providers\SupplierServiceProvider::class);
+        $this->app->register(\Amethyst\Providers\TaxonomyServiceProvider::class);
+        $this->app->register(\Amethyst\Providers\SupplierServiceProvider::class);
 
         /*
         Config::set('amethyst.taxonomy.data.taxonomy.seeds', array_merge(

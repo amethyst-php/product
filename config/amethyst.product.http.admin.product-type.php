@@ -2,7 +2,7 @@
 
 return [
     'enabled'    => true,
-    'controller' => Railken\Amethyst\Http\Controllers\Admin\ProductTypesController::class,
+    'controller' => Amethyst\Http\Controllers\Admin\ProductTypesController::class,
     'router'     => [
         'as'     => 'product-type.',
         'prefix' => '/product-types',

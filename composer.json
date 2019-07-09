@@ -1,12 +1,12 @@
 {
-    "name": "railken/amethyst-product",
+    "name": "amethyst/product",
     "keywords": ["laravel", "amethyst", "amethyst-product", "product"],
     "license": "MIT",
     "require": {
         "php": ">=7.1",
-        "railken/amethyst-common": "0.1.*",
-        "railken/amethyst-taxonomy": "0.1.*",
-        "railken/amethyst-supplier": "0.1.*"
+        "amethyst/common": "0.1.*",
+        "amethyst/taxonomy": "0.1.*",
+        "amethyst/supplier": "0.1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.1",
@@ -14,12 +14,12 @@
     },
     "autoload": {
         "psr-4" : {
-            "Railken\\Amethyst\\" : "src/"
+            "Amethyst\\" : "src/"
         }
     },
     "autoload-dev": {
         "psr-4": { 
-            "Railken\\Amethyst\\Tests\\": "tests/" 
+            "Amethyst\\Tests\\": "tests/" 
         }
     },
     "extra": {
@@ -29,7 +29,7 @@
         },
         "laravel": {
             "providers": [
-                "Railken\\Amethyst\\Providers\\ProductServiceProvider"
+                "Amethyst\\Providers\\ProductServiceProvider"
             ]
         }
     }

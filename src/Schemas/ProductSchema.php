@@ -1,10 +1,10 @@
 <?php
 
-namespace Railken\Amethyst\Schemas;
+namespace Amethyst\Schemas;
 
-use Railken\Amethyst\Managers\ProductManager;
-use Railken\Amethyst\Managers\ProductTypeManager;
-use Railken\Amethyst\Managers\SupplierManager;
+use Amethyst\Managers\ProductManager;
+use Amethyst\Managers\ProductTypeManager;
+use Amethyst\Managers\SupplierManager;
 use Railken\Lem\Attributes;
 use Railken\Lem\Schema;
 
