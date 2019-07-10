@@ -2,10 +2,10 @@
 
 namespace Amethyst\Providers;
 
-use Illuminate\Support\Facades\Config;
 use Amethyst\Common\CommonServiceProvider;
 use Amethyst\Managers\ProductManager;
 use Amethyst\Models\Product;
+use Illuminate\Support\Facades\Config;
 
 class ProductServiceProvider extends CommonServiceProvider
 {
